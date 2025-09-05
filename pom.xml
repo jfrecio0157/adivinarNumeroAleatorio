@@ -8,24 +8,31 @@
   <packaging>jar</packaging>
 
   <name>adivinarNumeroAleatorio</name>
-  <url>http://maven.apache.org</url>
+  <description>Juego para adivinar un número aleatorio con pruebas unitarias.</description>
+  <url>https://example.com</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>19</java.version> <!-- Variable para la versión de Java -->
+    <junit.jupiter.version>5.13.4</junit.jupiter.version>
+    <mockito.version>5.19.0</mockito.version>
+    <compiler.plugin.version>3.14.0</compiler.plugin.version>
   </properties>
 
   <dependencies>
+    <!-- JUnit 5 -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
-      <version>5.9.3</version>
+      <version>${junit.jupiter.version}</version>
       <scope>test</scope>
     </dependency>
 
+    <!-- Mockito -->
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
-      <version>5.8.0</version>
+      <version>${mockito.version}</version>
       <scope>test</scope>
     </dependency>
 
@@ -33,11 +40,26 @@
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-junit-jupiter</artifactId>
-      <version>5.8.0</version>
+      <version>${mockito.version}</version>
       <scope>test</scope>
     </dependency>
 
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${compiler.plugin.version}</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
 </project>
 
 
